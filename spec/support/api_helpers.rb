@@ -4,8 +4,8 @@ module ApiHelpers
     JSON.parse(response.body)
   end
 
-  def login_with_api(user)
-    post '/api/login', params: {
+  def login_with_api_v1(user)
+    post '/api/v1/login', params: {
            user: {
              email: user.email,
              password: user.password

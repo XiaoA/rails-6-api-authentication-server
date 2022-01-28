@@ -6,4 +6,12 @@ class ApplicationController < ActionController::API
       render jsonapi_errors: resource.errors, status: 400
     end
   end
+
+  def authenticate_user!
+    if user_signed_in?
+      @user = current_user
+    else
+      head :unauthorized
+    end 
+  end 
 end
